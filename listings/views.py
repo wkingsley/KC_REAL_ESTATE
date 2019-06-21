@@ -39,6 +39,7 @@ def search(request):
   if 'city' in request.GET:
     city = request.GET['city']
     if city:
+      # Exact but case insensitive filter
       queryset_list = queryset_list.filter(city__iexact=city)
 
   # Search by state
@@ -51,6 +52,7 @@ def search(request):
   if 'bedrooms' in request.GET:
     bedrooms = request.GET['bedrooms']
     if bedrooms:
+      # filter by Less than or equal to
       queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
 
   # Search by price
