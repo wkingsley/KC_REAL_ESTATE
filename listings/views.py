@@ -18,6 +18,7 @@ def index(request):
   return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
+  # Fetch single listing using its id(primary key)
   listing = get_object_or_404(Listing, pk=listing_id)
 
   context = {
